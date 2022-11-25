@@ -260,6 +260,15 @@ def ros2_repositories_impl():
 
     maybe(
         http_archive,
+        name = "ros2_geometry2",
+        build_file = "@com_github_mvukov_rules_ros2//repositories:geometry2.BUILD.bazel",
+        sha256 = "028a0aaa2f0ddd142da24921a9fa8e1b790734de364bd37de6d6a89c7487c3ab",
+        strip_prefix = "geometry2-0.25.0",
+        url = "https://github.com/ros2/geometry2/archive/refs/tags/0.25.0.tar.gz",
+    )
+
+    maybe(
+        http_archive,
         name = "ros2_unique_identifier_msgs",
         build_file = "@com_github_mvukov_rules_ros2//repositories:unique_identifier_msgs.BUILD.bazel",
         sha256 = "ccedcb7c2b6d927fc4f654cceab299a8cb55082953867754795c6ea2ccdd68a9",

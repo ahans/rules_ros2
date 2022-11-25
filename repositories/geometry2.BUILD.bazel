@@ -1,0 +1,23 @@
+""" Builds geometry2.
+"""
+
+load("@com_github_mvukov_rules_ros2//ros2:cc_defs.bzl", "ros2_cpp_library")
+
+ros2_cpp_library(
+    name = "tf2",
+    srcs = glob([
+        "tf2/src/**/*.cpp",
+    ]),
+    hdrs = glob([
+        "tf2/include/tf2/**/*.h",
+    ]),
+    includes = [
+        "tf2/include",
+        "tf2/include/tf2",
+    ],
+    visibility = ["//visibility:public"],
+    deps = [
+        "@ros2_rcutils//:rcutils",
+        "@ros2_common_interfaces//:cpp_geometry_msgs",
+    ],
+)

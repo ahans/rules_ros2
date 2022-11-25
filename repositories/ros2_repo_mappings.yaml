@@ -100,6 +100,9 @@ repositories:
   rpyutils:
     name: ros2_rpyutils
     build_file: "@com_github_mvukov_rules_ros2//repositories:rpyutils.BUILD.bazel"
+  geometry2:
+    name: ros2_geometry2
+    build_file: "@com_github_mvukov_rules_ros2//repositories:geometry2.BUILD.bazel"
   unique_identifier_msgs:
     name: ros2_unique_identifier_msgs
     build_file: "@com_github_mvukov_rules_ros2//repositories:unique_identifier_msgs.BUILD.bazel"
