@@ -26,6 +26,7 @@ py_library(
         "@ros2_common_interfaces//:py_diagnostic_msgs",
         "@ros2_rclpy//:rclpy",
     ],
+    imports = ["diagnostic_updater"],
 )
 
 ros2_cpp_library(
