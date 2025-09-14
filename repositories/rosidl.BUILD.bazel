@@ -93,6 +93,8 @@ py_library(
     deps = [
         ":rosidl_cmake",
         ":rosidl_parser",
+        ":rosidl_generator_type_description_lib",
+        ":rosidl_pycommon_lib",
     ],
 )
 
@@ -167,6 +169,27 @@ filegroup(
 
 exports_files(
     srcs = ["rosidl_generator_cpp/resource/rosidl_generator_cpp__visibility_control.hpp.in"],
+)
+
+py_library(
+    name = "rosidl_generator_type_description_lib",
+    srcs = ["rosidl_generator_type_description/rosidl_generator_type_description/__init__.py"],
+    imports = ["rosidl_generator_type_description"],
+    visibility = ["//visibility:public"],
+    deps = [
+        ":rosidl_parser",
+    ],
+)
+
+py_library(
+    name = "rosidl_pycommon_lib",
+    srcs = ["rosidl_pycommon/rosidl_pycommon/__init__.py"],
+    imports = ["rosidl_pycommon"],
+    visibility = ["//visibility:public"],
+    deps = [
+        ":rosidl_parser",
+        requirement("empy"),
+    ],
 )
 
 # Global variable rosidl_typesupport_introspection_c__identifier must have a unique address.

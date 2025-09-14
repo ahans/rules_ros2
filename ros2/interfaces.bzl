@@ -222,6 +222,10 @@ def run_generator(
         relative_file = "{}/{}".format(package_name, extra_output)
         generator_outputs.append(ctx.actions.declare_file(relative_file))
 
+    print(generator_templates)
+    print(generator_env)
+    print(generator_cmd_args)
+
     ctx.actions.run(
         inputs = adapter.idl_files + generator_templates + [generator_arguments_file],
         outputs = generator_outputs,
@@ -395,6 +399,7 @@ def _c_generator_aspect_impl(target, ctx):
             # TODO(mvukov) There are also rosidl_typesupport_connext_c and
             # rosidl_typesupport_fastrtps_c.
             "--typesupports=rosidl_typesupport_introspection_c",
+            "--disable-description-codegen",
         ],
         mnemonic = "Ros2IdlTypeSupportC",
         progress_message = "Generating C type support for %{label}",
@@ -562,6 +567,8 @@ def _cpp_generator_aspect_impl(target, ctx):
             # TODO(mvukov) There are also rosidl_typesupport_connext_cpp and
             # rosidl_typesupport_fastrtps_cpp.
             "--typesupports=rosidl_typesupport_introspection_cpp",
+            "--disable-description-codegen",
+
         ],
         mnemonic = "Ros2IdlTypeSupportCpp",
         progress_message = "Generating C++ type support for %{label}",
