@@ -305,6 +305,15 @@ def ros2_repositories_impl():
 
     maybe(
         http_archive,
+        name = "ros2_rosidl_dynamic_typesupport",
+        build_file = "@com_github_mvukov_rules_ros2//repositories:rosidl_dynamic_typesupport.BUILD.bazel",
+        sha256 = "3a7076212e7450411dd728300efe09ef10c1c0714b1e98b805da2142f98e0f6f",
+        strip_prefix = "rosidl_dynamic_typesupport-0.1.2",
+        url = "https://github.com/ros2/rosidl_dynamic_typesupport/archive/refs/tags/0.1.2.tar.gz",
+    )
+
+    maybe(
+        http_archive,
         name = "ros2_rosidl_python",
         build_file = "@com_github_mvukov_rules_ros2//repositories:rosidl_python.BUILD.bazel",
         patch_args = ["-p1"],

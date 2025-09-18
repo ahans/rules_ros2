@@ -23,5 +23,6 @@ ros2_cpp_library(
         "@ros2_rcpputils//:rcpputils",
         "@ros2_rcutils//:rcutils",
         "@ros2_rmw//:rmw",
+        "@ros2_rosidl_dynamic_typesupport//:rosidl_dynamic_typesupport",
     ],
 )
